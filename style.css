@@ -211,3 +211,7 @@ section {
   text-decoration: underline;
   font-weight: bold;
 }
+/* Override first intro slide with a two-student mentoring photo */
+.slide-intro {
+  background: url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
