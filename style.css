@@ -12,7 +12,7 @@ html, body {
 }
 body {
   background: #fff;
-  color: #333;
+  color: #000; /* Changed from #333 to #000 */
   line-height: 1.6;
 }
 
@@ -127,7 +127,7 @@ nav.active {
 .dropdown-content a {
   display: block;
   padding: 0.75rem 1.5rem;
-  color: #333;
+  color: #000;
   text-decoration: none;
   transition: background 0.3s ease;
 }
@@ -385,7 +385,7 @@ section {
   transition: width 0.3s ease;
 }
 .tab-btn.active::after {
-  width: 50%;
+  width: 50%;  
 }
 .tab-content {
   display: none;
@@ -394,7 +394,7 @@ section {
   display: block;
 }
 
-/* (…remaining sections’ CSS follows exactly what we coded…) */
+/* Continue with the rest of your unchanged CSS… */
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -412,7 +412,9 @@ section {
   nav {
     display: none;
     position: absolute;
-    top: 100%; left: 0; right: 0;
+    top: 100%;
+    left: 0;
+    right: 0;
     background: #fff;
     flex-direction: column;
     padding: 1rem 0;
