@@ -36,19 +36,32 @@
       backdrop-filter: blur(10px);
       transition: background 0.3s ease, color 0.3s ease;
     }
+    /* default text black until scroll */
+    header nav a,
+    header .logo-container {
+      color: #000;
+      transition: color 0.3s ease;
+    }
+    /* on hover */
     header:hover {
       background: white;
     }
+    header:hover nav a {
+      color: black;
+    }
+    header:hover .logo-container {
+      color: black;
+    }
+    /* after scroll */
+    header.scrolled nav a,
+    header.scrolled .logo-container {
+      color: #fff;
+    }
     header nav a {
-      color: white;
       margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 600;
       position: relative;
-      transition: color 0.3s ease;
-    }
-    header:hover nav a {
-      color: black;
     }
     header nav a:hover::after {
       content: '';
@@ -63,11 +76,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: white;
-      transition: color 0.3s ease;
-    }
-    header:hover .logo-container {
-      color: black;
     }
     .logo-container img {
       height: 30px;
@@ -84,17 +92,13 @@
     }
     .slide-intro {
       background: url('https://images.unsplash.com/photo-1532619187600-8fcd54f5f07f') center/cover no-repeat;
-      color: white;
       position: relative;
     }
     .slide-intro::before,
     .slide-mission::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background-color: rgba(0, 0, 0, 0.4);
       z-index: 0;
     }
@@ -102,6 +106,7 @@
     .slide-mission h2 {
       position: relative;
       z-index: 1;
+      color: white;
     }
     .slide-intro h1 {
       font-size: 3rem;
@@ -109,7 +114,6 @@
     }
     .slide-mission {
       background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644') center/cover no-repeat;
-      color: white;
       position: relative;
     }
     .slide-mission h2 {
@@ -119,18 +123,13 @@
     .hero {
       background: white;
       color: black;
-      padding: 12rem 2rem 8rem 2rem;
+      padding: 12rem 2rem 8rem;
       position: relative;
-    }
-    .hero::before {
-      content: "";
-      display: none;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3.5rem;
       margin-bottom: 1rem;
-      text-shadow: none;
     }
     .hero p {
       font-size: 1.3rem;
@@ -207,6 +206,56 @@
       text-decoration: underline;
       font-weight: bold;
     }
+    /* Footer styling (assumes you have container, footer-top, footer-links, etc. defined) */
+    .footer-top, .footer-bottom {
+      width: 100%;
+      padding: 2rem;
+      background: #f8f8f8;
+    }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+    .footer-top h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: #0057a3;
+    }
+    .footer-top ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer-top ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-top a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.2s;
+    }
+    .footer-top a:hover {
+      color: #ff7b00;
+    }
+    .newsletter-signup input {
+      padding: 0.5rem;
+      margin-right: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .newsletter-signup button {
+      padding: 0.5rem 1rem;
+      background: #0057a3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .footer-bottom {
+      text-align: center;
+      background: #e1e1e1;
+    }
   </style>
 </head>
 <body>
@@ -276,26 +325,89 @@
     </div>
   </section>
 
+  <!-- Updated Footer -->
+  <footer data-aos="fade-up">
+    <div class="footer-top container">
+      <div class="footer-links">
+        <h3>Courses</h3>
+        <ul>
+          <li><a href="#programs">General English</a></li>
+          <li><a href="#programs">Conversational</a></li>
+          <li><a href="#programs">Academic English</a></li>
+          <li><a href="#programs">Business English</a></li>
+        </ul>
+      </div>
+      <div class="footer-programs">
+        <h3>Specializations</h3>
+        <ul>
+          <li><a href="#writing">Writing Tips</a></li>
+          <li><a href="#mastery">Mastery Tracks</a></li>
+          <li><a href="#fluency">Fluency Boost</a></li>
+          <li><a href="#polish">Language Polish</a></li>
+        </ul>
+      </div>
+      <div class="footer-services">
+        <h3>Support & Info</h3>
+        <ul>
+          <li><a href="#locator">Location Finder</a></li>
+          <li><a href="#customer-service">Customer Service</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#legal">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#media">Media Center</a></li>
+          <li><a href="#refund">Refund Policy</a></li>
+          <li><a href="#certificate">Certificate of Completion</a></li>
+        </ul>
+        <div class="newsletter-signup">
+          <p>Subscribe to our newsletter</p>
+          <form action="#" method="post">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <div class="footer-accessibility">
+        <a href="#accessibility">Accessibility Settings</a>
+      </div>
+      <p>&copy; 2025 OurEnglish. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
 
     const mission = document.getElementById('mission');
-    let lastY = 0;
     let delayActive = false;
 
+    // Scroll-lock on the second slide
     window.addEventListener('scroll', () => {
-      const rect = mission.getBoundingClientRect();
-      const topVisible = rect.top <= window.innerHeight && rect.top >= 0;
-      const bottomVisible = rect.bottom >= 0 && rect.bottom <= window.innerHeight;
+      if (!delayActive) {
+        const rect = mission.getBoundingClientRect();
+        if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+          delayActive = true;
+          document.body.style.overflow = 'hidden';
+          setTimeout(() => {
+            document.body.style.overflow = 'auto';
+            delayActive = false;
+          }, 1000);
+        }
+      }
 
-      if (topVisible && bottomVisible && !delayActive) {
-        delayActive = true;
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-          document.body.style.overflow = 'auto';
-          delayActive = false;
-        }, 1000);
+      // Toggle 'scrolled' class on header
+      const header = document.querySelector('header');
+      if (window.scrollY > 0) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
       }
     });
   </script>
