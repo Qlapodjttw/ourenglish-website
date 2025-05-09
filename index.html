@@ -4,9 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OurEnglish - Master English</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Master English online with personalized courses tailored for beginners and international learners at OurEnglish.">
+  <meta property="og:title" content="OurEnglish - Master English">
+  <meta property="og:description" content="Personalized English courses for beginners, international students, and more.">
+  <meta property="og:image" content="https://yourcdn.com/images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- Google Fonts & AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "OurEnglish",
+    "url": "https://ourenglish.org",
+    "logo": "https://ourenglish.org/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-123-4567",
+      "email": "info@ourenglish.org",
+      "contactType": "Customer Support"
+    }
+  }
+  </script>
+
   <style>
     /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
@@ -14,7 +42,7 @@
     body { background: #fff; color: #333; line-height: 1.6; }
 
     /* Header */
-    header {
+    header[role="banner"] {
       position: sticky; top: 0; z-index: 1000;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1rem 2rem;
@@ -35,17 +63,17 @@
     .logo-container { display: flex; align-items: center; gap: 0.5rem; }
     .logo-container img { height: 30px; width: 30px; }
 
-    /* Intro Slides */
+    /* Slides */
     .slide-intro, .slide-mission {
       height: 100vh; scroll-snap-align: start;
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 2rem; position: relative;
     }
     .slide-intro {
-      background: url('https://images.unsplash.com/photo-1532619187600-8fcd54f5f07f') center/cover no-repeat;
+      background: url('images/slide-intro.jpg') center/cover no-repeat;
     }
     .slide-mission {
-      background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644') center/cover no-repeat;
+      background: url('images/slide-mission.jpg') center/cover no-repeat;
     }
     .slide-intro::before, .slide-mission::before {
       content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
@@ -57,7 +85,7 @@
     .slide-intro h1 { font-size: 3rem; }
     .slide-mission h2 { font-size: 2.5rem; }
 
-    /* Sections flow normally */
+    /* Normal Sections */
     section:not(.slide-intro):not(.slide-mission) {
       padding: 2rem; display: block; height: auto;
     }
@@ -106,39 +134,32 @@
     .program-card p { margin-bottom: 1rem; font-size: 0.95rem; }
     .program-card a { color: white; text-decoration: underline; }
 
-    /* Extended Credentials & Social Footer */
+    /* Credentials & Social */
     .site-credentials {
-      position: relative;
-      padding: 4rem 2rem;
-      background: url('https://images.unsplash.com/photo-1532619187600-8fcd54f5f07f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      color: white;
-      text-align: center;
+      position: relative; padding: 4rem 2rem;
+      background: url('images/credentials-bg.jpg') center/cover no-repeat;
+      color: white; text-align: center;
     }
     .site-credentials::before {
-      content: "";
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.5); z-index: 0;
     }
     .credentials-info p {
-      position: relative; z-index: 1;
-      margin: 0.5rem 0; font-size: 0.9rem; color: #fff;
+      position: relative; z-index: 1; margin: 0.5rem 0; font-size: 0.9rem; color: #fff;
     }
     .credentials-info a {
-      position: relative; z-index: 1;
-      color: #ff7b00; text-decoration: none;
+      position: relative; z-index: 1; color: #ff7b00; text-decoration: none;
     }
     .credentials-info a:hover { text-decoration: underline; }
     .social-buttons {
-      position: relative; z-index: 1;
-      margin-top: 1rem;
+      position: relative; z-index: 1; margin-top: 1rem;
     }
     .social-buttons a {
-      margin: 0 0.5rem; color: #fff; font-size: 1.5rem;
-      transition: color 0.3s;
+      margin: 0 0.5rem; color: #fff; font-size: 1.5rem; transition: color 0.3s;
     }
     .social-buttons a:hover { color: #ff7b00; }
 
-    /* Final Footer Links */
+    /* Footer Links */
     .footer-top, .footer-bottom {
       width: 100%; padding: 2rem; background: #f8f8f8;
     }
@@ -154,14 +175,15 @@
       margin-top: 1rem;
     }
     .newsletter-signup input {
-      padding: 0.5rem; margin-right: 0.5rem;
-      border: 1px solid #ccc; border-radius: 4px;
+      padding: 0.5rem; margin-right: 0.5rem; border: 1px solid #ccc; border-radius: 4px;
     }
     .newsletter-signup button {
       padding: 0.5rem 1rem; background: #0057a3; color: white;
       border: none; border-radius: 4px; cursor: pointer;
     }
-    .footer-bottom { text-align: center; background: #e1e1e1; }
+    .footer-bottom {
+      text-align: center; background: #e1e1e1;
+    }
     .footer-accessibility a {
       color: #0057a3; text-decoration: none; margin-right: 1rem;
     }
@@ -175,12 +197,12 @@
   </style>
 </head>
 <body>
-  <header>
+  <header role="banner">
     <div class="logo-container">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png" alt="Logo placeholder">
+      <img src="images/logo.png" alt="OurEnglish logo" loading="lazy">
       <strong>OurEnglish</strong>
     </div>
-    <nav>
+    <nav role="navigation" aria-label="Primary Navigation">
       <a href="#about">About Us</a>
       <a href="#programs">Programs</a>
       <a href="#team">Our Team</a>
@@ -190,62 +212,64 @@
     </nav>
   </header>
 
-  <section class="slide-intro">
-    <h1>Welcome to OurEnglish — Learn with Confidence</h1>
-  </section>
+  <main>
+    <section class="slide-intro" role="region" aria-label="Welcome slide">
+      <h1>Welcome to OurEnglish — Learn with Confidence</h1>
+    </section>
 
-  <section class="slide-mission" id="mission">
-    <h2>Our Mission: Make English Accessible, Supportive, and Personalized for All</h2>
-  </section>
+    <section class="slide-mission" id="mission" role="region" aria-label="Our mission">
+      <h2>Our Mission: Make English Accessible, Supportive, and Personalized for All</h2>
+    </section>
 
-  <section class="hero" id="about">
-    <h1>Master English in a Supportive Environment</h1>
-    <p>Personalized courses for beginners, amateurs, and international students</p>
-    <div class="cta-container">
-      <div class="cta-box" data-aos="fade-up">
-        <h3>Book a Free Trial</h3>
-        <p>Experience a 30-minute free session with our expert teachers and see how we work.</p>
-        <a href="#contact">Book Now</a>
+    <section class="hero" id="about" role="region" aria-label="Hero section">
+      <h1>Master English in a Supportive Environment</h1>
+      <p>Personalized courses for beginners, amateurs, and international students</p>
+      <div class="cta-container">
+        <div class="cta-box" data-aos="fade-up">
+          <h3>Book a Free Trial</h3>
+          <p>Experience a 30-minute free session with our expert teachers and see how we work.</p>
+          <a href="#contact">Book Now</a>
+        </div>
+        <div class="cta-box" data-aos="fade-up" data-aos-delay="100">
+          <h3>Explore Programs</h3>
+          <p>Find the perfect English course for your needs.</p>
+          <a href="#programs">See Courses</a>
+        </div>
       </div>
-      <div class="cta-box" data-aos="fade-up" data-aos-delay="100">
-        <h3>Explore Programs</h3>
-        <p>Find the perfect English course for your needs, whether you're a beginner or international student.</p>
-        <a href="#programs">See Courses</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="programs" id="programs">
-    <h2>Featured Programs</h2>
-    <div class="program-grid">
-      <div class="program-card">
-        <h3>General English for Beginners</h3>
-        <p>Foundational grammar, vocabulary, and speaking practice for absolute beginners.</p>
-        <a href="#">Learn More</a>
+    <section class="programs" id="programs" role="region" aria-label="Featured programs">
+      <h2>Featured Programs</h2>
+      <div class="program-grid">
+        <div class="program-card">
+          <h3>General English for Beginners</h3>
+          <p>Foundational grammar, vocabulary, and speaking practice for absolute beginners.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="program-card">
+          <h3>Conversational English</h3>
+          <p>Fluency-focused sessions designed to boost confidence and everyday communication skills.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="program-card">
+          <h3>English for International Students</h3>
+          <p>Specialized curriculum for students planning to study or work abroad in English-speaking countries.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="program-card">
+          <h3>Free Programs</h3>
+          <p>Access quality language instruction for underprivileged and disabled learners at no cost.</p>
+          <a href="#">Learn More</a>
+        </div>
       </div>
-      <div class="program-card">
-        <h3>Conversational English</h3>
-        <p>Fluency-focused sessions designed to boost confidence and everyday communication skills.</p>
-        <a href="#">Learn More</a>
-      </div>
-      <div class="program-card">
-        <h3>English for International Students</h3>
-        <p>Specialized curriculum for students planning to study or work abroad in English-speaking countries.</p>
-        <a href="#">Learn More</a>
-      </div>
-      <div class="program-card">
-        <h3>Free Programs</h3>
-        <p>Access quality language instruction for underprivileged and disabled learners at no cost.</p>
-        <a href="#">Learn More</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Extended Credentials & Social -->
-  <div class="site-credentials" data-aos="fade-up">
+  <div class="site-credentials" role="contentinfo">
     <div class="credentials-info">
       <p>© 2025 OurEnglish Language Institute, All rights reserved.</p>
-      <p>123 Language St, Education City | Email: <a href="mailto:info@ourenglish.org">info@ourenglish.org</a> | Phone: +1 (555) 123-4567</p>
+      <p>123 Language St, Education City | <a href="mailto:info@ourenglish.org">info@ourenglish.org</a> | Phone: +1 (555) 123-4567</p>
       <p>
         <a href="#learn-more">Learn More</a> |
         <a href="#privacy-policy">Privacy Policy</a> |
@@ -256,13 +280,12 @@
       <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://facebook.com/yourpage"   target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="https://tiktok.com/@yourprofile" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://twitter.com/yourprofile"target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
   </div>
 
-  <!-- Footer Links -->
-  <footer data-aos="fade-up">
-    <div class="footer-top container">
+  <footer role="contentinfo">
+    <div class="footer-top">
       <div class="footer-links">
         <h3>Courses</h3>
         <ul>
@@ -308,7 +331,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-bottom container">
+    <div class="footer-bottom">
       <div class="footer-accessibility">
         <a href="#accessibility">Accessibility Settings</a>
       </div>
@@ -318,24 +341,39 @@
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+    // AOS
+    AOS.init({ duration: 600, once: true });
+
+    // Header scroll-color toggle
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 0) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    // Scroll-lock second slide
     const mission = document.getElementById('mission');
     let delayActive = false;
     window.addEventListener('scroll', () => {
-      const header = document.querySelector('header');
-      if (window.scrollY > 0) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-      if (!delayActive) {
-        const rect = mission.getBoundingClientRect();
-        if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-          delayActive = true;
-          document.body.style.overflow = 'hidden';
-          setTimeout(() => {
-            document.body.style.overflow = 'auto';
-            delayActive = false;
-          }, 1000);
-        }
+      if (delayActive) return;
+      const rect = mission.getBoundingClientRect();
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        delayActive = true;
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          document.body.style.overflow = 'auto';
+          delayActive = false;
+        }, 1000);
       }
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+                .scrollIntoView({ behavior: 'smooth' });
+      });
     });
   </script>
 </body>
