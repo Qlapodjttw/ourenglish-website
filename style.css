@@ -284,3 +284,31 @@ section {
     font-size: 1.2rem;
   }
 }
+.site-credentials {
+  padding: 2rem;
+  background: #f8f8f8;
+  text-align: center;
+}
+.site-credentials .credentials-info p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+.site-credentials .credentials-info a {
+  color: #0057a3;
+  text-decoration: none;
+}
+.site-credentials .credentials-info a:hover {
+  text-decoration: underline;
+}
+.site-credentials .social-buttons {
+  margin-top: 1rem;
+}
+.site-credentials .social-buttons a {
+  margin: 0 0.5rem;
+  color: #333;
+  transition: color 0.3s;
+}
+.site-credentials .social-buttons a:hover {
+  color: #ff7b00;
+}
