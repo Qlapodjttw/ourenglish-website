@@ -1,4 +1,4 @@
-<!-- index.html (refactored) -->
+<!-- index.html (refactored with full content) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +44,7 @@
     <div class="logo-container">
       <img src="images/logo.webp" alt="OurEnglish logo" loading="lazy">
       <strong>OurEnglish</strong>
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span class="hamburger"></span>
       </button>
     </div>
@@ -89,13 +89,102 @@
     <section class="programs" id="programs" role="region" aria-label="Featured programs">
       <h2>Featured Programs</h2>
       <div class="program-grid">
-        <!-- program cards -->
+        <div class="program-card">
+          <h3>General English for Beginners</h3>
+          <p>Foundational grammar, vocabulary, and speaking practice for absolute beginners.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="program-card">
+          <h3>Conversational English</h3>
+          <p>Fluency-focused sessions designed to boost confidence and everyday communication skills.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="program-card">
+          <h3>English for International Students</h3>
+          <p>Specialized curriculum for students planning to study or work abroad in English-speaking countries.</p>
+          <a href="#">Learn More</a>
+        </div>
+        <div class="program-card">
+          <h3>Free Programs</h3>
+          <p>Access quality language instruction for underprivileged and disabled learners at no cost.</p>
+          <a href="#">Learn More</a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Extended Credentials & Social -->
+  <div class="site-credentials" role="contentinfo">
+    <div class="credentials-info">
+      <p>© 2025 OurEnglish Language Institute, All rights reserved.</p>
+      <p>123 Language St, Education City | <a href="mailto:info@ourenglish.org">info@ourenglish.org</a> | Phone: +1 (555) 123-4567</p>
+      <p>
+        <a href="#learn-more">Learn More</a> |
+        <a href="#privacy-policy">Privacy Policy</a> |
+        <a href="#terms-of-use">Terms of Use</a>
+      </p>
+    </div>
+    <div class="social-buttons">
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/yourpage"   target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://tiktok.com/@yourprofile" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+
   <footer role="contentinfo">
-    <!-- footer content -->
+    <div class="footer-top">
+      <div class="footer-links">
+        <h3>Courses</h3>
+        <ul>
+          <li><a href="#programs">General English</a></li>
+          <li><a href="#programs">Conversational</a></li>
+          <li><a href="#programs">Academic English</a></li>
+          <li><a href="#programs">Business English</a></li>
+        </ul>
+      </div>
+      <div class="footer-programs">
+        <h3>Specializations</h3>
+        <ul>
+          <li><a href="#writing">Writing Tips</a></li>
+          <li><a href="#mastery">Mastery Tracks</a></li>
+          <li><a href="#fluency">Fluency Boost</a></li>
+          <li><a href="#polish">Language Polish</a></li>
+        </ul>
+      </div>
+      <div class="footer-services">
+        <h3>Support & Info</h3>
+        <ul>
+          <li><a href="#locator">Location Finder</a></li>
+          <li><a href="#customer-service">Customer Service</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#legal">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-company">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#media">Media Center</a></li>
+          <li><a href="#refund">Refund Policy</a></li>
+          <li><a href="#certificate">Certificate of Completion</a></li>
+        </ul>
+        <div class="newsletter-signup">
+          <p>Subscribe to our newsletter</p>
+          <form action="#" method="post">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-accessibility">
+        <a href="#accessibility">Accessibility Settings</a>
+      </div>
+      <p>&copy; 2025 OurEnglish. All rights reserved.</p>
+    </div>
   </footer>
 
   <!-- External JS -->
