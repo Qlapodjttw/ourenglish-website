@@ -1,74 +1,64 @@
-// scripts.js (Refactored & Optimized)
-
-// Utility: throttle function to limit how often a callback runs
+// Utility throttle (Feature 4)
 function throttle(fn, wait) {
-  let isCalled = false;
+  let last = 0;
   return function(...args) {
-    if (!isCalled) {
+    const now = Date.now();
+    if (now - last >= wait) {
       fn.apply(this, args);
-      isCalled = true;
-      setTimeout(() => isCalled = false, wait);
+      last = now;
     }
   };
 }
 
-// 1) Initialize AOS animations
+// Initialize AOS (Feature 1)
 AOS.init({ duration: 600, once: true });
 
-// 2) Cache DOM references
+// DOM refs
 const header = document.querySelector('header.site-header');
-const missionSection = document.getElementById('mission');
+const mission = document.getElementById('mission');
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
-let scrollLockActive = false;
+let lastY = window.scrollY;
+let lock = false;
 
-// 3) Scroll handler (throttled)
+// Scroll handler (throttled)
 function onScroll() {
-  const scrollY = window.scrollY;
-
-  // Header color toggle
-  header.classList.toggle('scrolled', scrollY > 0);
-
-  // Scroll-lock logic for mission section
-  if (missionSection && !scrollLockActive) {
-    const rect = missionSection.getBoundingClientRect();
-    if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-      scrollLockActive = true;
+  const y = window.scrollY;
+  // solid header on scroll
+  header.classList.toggle('scrolled', y > 0);
+  // auto-hide header (Feature 4)
+  if (y > lastY) header.classList.add('hidden');
+  else header.classList.remove('hidden');
+  lastY = y;
+  // scroll-lock on mission slide
+  if (!lock && mission) {
+    const r = mission.getBoundingClientRect();
+    if (r.top <= 0 && r.bottom >= window.innerHeight) {
+      lock = true;
       document.body.style.overflow = 'hidden';
       setTimeout(() => {
         document.body.style.overflow = '';
-        scrollLockActive = false;
+        lock = false;
       }, 1000);
     }
   }
 }
 window.addEventListener('scroll', throttle(onScroll, 200));
 
-// 4) Smooth scrolling for internal links
-function setupSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+// Smooth scroll for anchors
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior:'smooth' });
     });
   });
-}
-
-// 5) Mobile navigation toggle
-function setupNavToggle() {
+  // mobile nav toggle
   if (navToggle && siteNav) {
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', ()=>{
       siteNav.classList.toggle('open');
-      // Update ARIA attribute
-      const expanded = siteNav.classList.contains('open');
-      navToggle.setAttribute('aria-expanded', expanded);
+      navToggle.setAttribute('aria-expanded', siteNav.classList.contains('open'));
     });
   }
-}
-
-// Initialize all behaviors when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  setupSmoothScroll();
-  setupNavToggle();
 });
