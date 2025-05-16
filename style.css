@@ -1,8 +1,7 @@
-/* styles.css (Refactored & Optimized, Updated with Product Grid) */
+/* css base code fothesite */
 
-/* === Variables & Root-Level Settings === */
 :root {
-  /* Color Palette */
+ 
   --color-primary: #0057a3;
   --color-secondary: #ff7b00;
   --color-bg: #fff;
@@ -14,7 +13,6 @@
   --transition: 0.3s ease;
 }
 
-/* Reset (targeted) */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -34,7 +32,6 @@ img {
   display: block;
 }
 
-/* === Header & Navigation === */
 header.site-header {
   position: sticky;
   top: 0;
