@@ -1,4 +1,4 @@
-// Utility throttle (Feature 4)
+// scroll feature
 function throttle(fn, wait) {
   let last = 0;
   return function(...args) {
@@ -10,10 +10,9 @@ function throttle(fn, wait) {
   };
 }
 
-// Initialize AOS (Feature 1)
+// ai assisted code for scroll and guide bar
 AOS.init({ duration: 600, once: true });
 
-// DOM refs
 const header = document.querySelector('header.site-header');
 const mission = document.getElementById('mission');
 const navToggle = document.querySelector('.nav-toggle');
@@ -21,16 +20,16 @@ const siteNav = document.querySelector('.site-nav');
 let lastY = window.scrollY;
 let lock = false;
 
-// Scroll handler (throttled)
+// Scroll handler 
 function onScroll() {
   const y = window.scrollY;
-  // solid header on scroll
+ 
   header.classList.toggle('scrolled', y > 0);
-  // auto-hide header (Feature 4)
+  // guide bar hide thingy
   if (y > lastY) header.classList.add('hidden');
   else header.classList.remove('hidden');
   lastY = y;
-  // scroll-lock on mission slide
+ 
   if (!lock && mission) {
     const r = mission.getBoundingClientRect();
     if (r.top <= 0 && r.bottom >= window.innerHeight) {
